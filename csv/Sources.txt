@@ -1,3 +1,9 @@
 https://www.data.go.kr/data/15135815/fileData.do#
 https://www.data.go.kr/data/15081069/fileData.do
 https://www.data.go.kr/data/15110001/fileData.do
+
+# 서울특별시 유동인구시각화자료
+https://data.seoul.go.kr/bsp/wgs/gis/gis43.do
+
+# 통신사 유동인구
+https://bigdata.seoul.go.kr/data/selectSampleData.do?sample_data_seq=73
