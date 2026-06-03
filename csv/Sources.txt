@@ -8,4 +8,5 @@ https://data.seoul.go.kr/bsp/wgs/gis/gis43.do
 # 통신사 유동인구
 https://bigdata.seoul.go.kr/data/selectSampleData.do?sample_data_seq=73
 
-dfsa
+# 자치구단위 서울생활인구 일별 집계표
+https://data.seoul.go.kr/dataList/OA-15379/S/1/datasetView.do
