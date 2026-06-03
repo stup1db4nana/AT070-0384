@@ -1,3 +1,4 @@
+# 서울시 휴게음식점 인허가정보
 https://www.data.go.kr/data/15135815/fileData.do#
 https://www.data.go.kr/data/15081069/fileData.do
 https://www.data.go.kr/data/15110001/fileData.do
@@ -5,8 +6,8 @@ https://www.data.go.kr/data/15110001/fileData.do
 # 서울특별시 유동인구시각화자료
 https://data.seoul.go.kr/bsp/wgs/gis/gis43.do
 
-# 통신사 유동인구
-https://bigdata.seoul.go.kr/data/selectSampleData.do?sample_data_seq=73
-
 # 자치구단위 서울생활인구 일별 집계표
 https://data.seoul.go.kr/dataList/OA-15379/S/1/datasetView.do
+
+# 연령별 등록인구 통계 2014 - 2026
+https://data.seoul.go.kr/dataList/10718/C/2/datasetView.do
