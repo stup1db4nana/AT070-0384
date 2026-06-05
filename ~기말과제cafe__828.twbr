@@ -1226,13 +1226,13 @@
               <calculation class='tableau' formula='if [영업상태코드] = 1 THEN&#13;&#10;datediff(&apos;day&apos;, [인허가일자], TODAY())&#13;&#10;ELSE&#13;&#10;datediff(&apos;day&apos;, [인허가일자], [폐업일자])&#13;&#10;END' />
             </column>
             <column-instance column='[Calculation_0547564571017216]' derivation='Avg' name='[avg:Calculation_0547564571017216:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[시설총규모]' derivation='Avg' name='[avg:시설총규모:qk]' pivot='key' type='quantitative' />
             <column-instance column='[시(복사본)_0642397469417476]' derivation='None' name='[none:시(복사본)_0642397469417476:nk]' pivot='key' type='nominal' />
+            <column-instance column='[지번주소 - 분할 2]' derivation='None' name='[none:지번주소 - 분할 2:nk]' pivot='key' type='nominal' />
+            <column-instance column='[지번주소]' derivation='None' name='[none:지번주소:nk]' pivot='key' type='nominal' />
             <column datatype='string' name='[도로명주소]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
             <column caption='소재지우편번호-구' datatype='string' name='[시(복사본)_0642397469417476]' role='dimension' semantic-role='[County].[Name]' type='nominal'>
               <calculation class='tableau' formula='SPLIT([도로명주소], &apos; &apos;, 2)' />
             </column>
-            <column datatype='real' name='[시설총규모]' role='measure' type='quantitative' />
             <column caption='커피숍 그룹' datatype='string' name='[업태구분명 (그룹)]' role='dimension' type='nominal'>
               <calculation class='categorical-bin' column='[업태구분명]' new-bin='true'>
                 <bin default-name='true' value='&quot;다방 및 커피숍&quot;'>
@@ -1269,6 +1269,10 @@
             <column datatype='string' name='[업태구분명]' role='dimension' type='nominal' />
             <column datatype='integer' name='[영업상태코드]' role='measure' type='quantitative' />
             <column datatype='date' name='[인허가일자]' role='dimension' type='ordinal' />
+            <column caption='지번주소 - 구' datatype='string' name='[지번주소 - 분할 2]' role='dimension' type='nominal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[federated.06btt4p0un3mlm11znpg30zr7t93].[지번주소]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( [지번주소], &quot; &quot;, 2 ) )' />
+            </column>
+            <column datatype='string' name='[지번주소]' role='dimension' type='nominal' />
             <column datatype='date' name='[폐업일자]' role='dimension' type='ordinal' />
           </datasource-dependencies>
           <filter class='quantitative' column='[federated.06btt4p0un3mlm11znpg30zr7t93].[Latitude (generated)]' included-values='non-null' />
@@ -1283,8 +1287,11 @@
         </view>
         <style>
           <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.06btt4p0un3mlm11znpg30zr7t93].[Longitude (generated)]' field-type='quantitative' max='14183410.491290707' min='14094830.517844167' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
-            <encoding attr='space' class='0' field='[federated.06btt4p0un3mlm11znpg30zr7t93].[Latitude (generated)]' field-type='quantitative' max='4543376.5845490219' min='4493453.7084315484' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.06btt4p0un3mlm11znpg30zr7t93].[Longitude (generated)]' field-type='quantitative' max='14175790.094570138' min='14102285.513061192' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.06btt4p0un3mlm11znpg30zr7t93].[Latitude (generated)]' field-type='quantitative' max='4538474.6836342504' min='4497048.1627858058' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.06btt4p0un3mlm11znpg30zr7t93].[avg:Calculation_0547564571017216:qk]' palette='orange_blue_diverging_10_0' reverse='true' type='interpolated' />
           </style-rule>
           <style-rule element='table'>
             <format attr='omit-on-special' field='[federated.06btt4p0un3mlm11znpg30zr7t93].[none:시(복사본)_0642397469417476:nk]' value='false' />
@@ -1304,7 +1311,8 @@
             <mark-sizing mark-sizing-setting='marks-scaling-off' />
             <encodings>
               <color column='[federated.06btt4p0un3mlm11znpg30zr7t93].[avg:Calculation_0547564571017216:qk]' />
-              <text column='[federated.06btt4p0un3mlm11znpg30zr7t93].[avg:시설총규모:qk]' />
+              <text column='[federated.06btt4p0un3mlm11znpg30zr7t93].[none:지번주소 - 분할 2:nk]' />
+              <text column='[federated.06btt4p0un3mlm11znpg30zr7t93].[none:지번주소:nk]' />
               <lod column='[federated.06btt4p0un3mlm11znpg30zr7t93].[none:시(복사본)_0642397469417476:nk]' />
               <geometry column='[federated.06btt4p0un3mlm11znpg30zr7t93].[Geometry (generated)]' />
             </encodings>
@@ -1574,7 +1582,7 @@
       </cards>
       <simple-id uuid='{FEC9BDA5-EE13-4136-B383-429B7E64C2A4}' />
     </window>
-    <window class='worksheet' name='총운영일이 60일 이상인 커피숍의 시설 규모 지역별 평균과 생존성의 상관관계'>
+    <window class='worksheet' maximized='true' name='총운영일이 60일 이상인 커피숍의 시설 규모 지역별 평균과 생존성의 상관관계'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1662,7 +1670,7 @@
       </viewpoint>
       <simple-id uuid='{9900BF4B-5312-45D3-B539-F3C46BFFB7B4}' />
     </window>
-    <window class='worksheet' maximized='true' name='시트 5'>
+    <window class='worksheet' name='시트 5'>
       <cards>
         <edge name='left'>
           <strip size='160'>
