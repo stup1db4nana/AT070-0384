@@ -652,6 +652,46 @@
       <column datatype='string' hidden='true' name='[등급구분명]' role='dimension' type='nominal' />
       <column datatype='integer' hidden='true' name='[보증액]' role='measure' type='quantitative' />
       <column datatype='string' name='[사업장명]' role='dimension' type='nominal' />
+      <column datatype='string' name='[생존률이 특히 높은 2개 구]' role='dimension' semantic-role='[County].[Name]' type='nominal'>
+        <calculation class='categorical-bin' column='[시(복사본)_0642397469417476]' new-bin='true'>
+          <bin default-name='false' value='&quot;생존률이 평범한 구&quot;'>
+            <value>&quot;강남구&quot;</value>
+            <value>&quot;강동구&quot;</value>
+            <value>&quot;강북구&quot;</value>
+            <value>&quot;강서구&quot;</value>
+            <value>&quot;관악구&quot;</value>
+            <value>&quot;광명시&quot;</value>
+            <value>&quot;광진구&quot;</value>
+            <value>&quot;구로구&quot;</value>
+            <value>&quot;군포시&quot;</value>
+            <value>&quot;금천구&quot;</value>
+            <value>&quot;노원구&quot;</value>
+            <value>&quot;도봉구&quot;</value>
+            <value>&quot;동대문구&quot;</value>
+            <value>&quot;동작구&quot;</value>
+            <value>&quot;마포구&quot;</value>
+            <value>&quot;부평구&quot;</value>
+            <value>&quot;서대문구&quot;</value>
+            <value>&quot;서초구&quot;</value>
+            <value>&quot;성남시&quot;</value>
+            <value>&quot;성동구&quot;</value>
+            <value>&quot;성북구&quot;</value>
+            <value>&quot;송파구&quot;</value>
+            <value>&quot;안양시&quot;</value>
+            <value>&quot;양천구&quot;</value>
+            <value>&quot;영등포구&quot;</value>
+            <value>&quot;용산구&quot;</value>
+            <value>&quot;용인시&quot;</value>
+            <value>&quot;은평구&quot;</value>
+            <value>&quot;의정부시&quot;</value>
+            <value>&quot;중랑구&quot;</value>
+          </bin>
+          <bin default-name='true' value='&quot;종로구 및 중구&quot;'>
+            <value>&quot;종로구&quot;</value>
+            <value>&quot;중구&quot;</value>
+          </bin>
+        </calculation>
+      </column>
       <column datatype='real' name='[소재지면적]' role='measure' type='quantitative' />
       <column caption='소재지우편번호-길' datatype='string' name='[소재지우편번호-구(복사본)_0642397469773829]' role='dimension' semantic-role='[County].[Name]' type='nominal'>
         <calculation class='tableau' formula='SPLIT([도로명주소], &apos; &apos;, 3)' />
@@ -1383,7 +1423,7 @@
       </table>
       <simple-id uuid='{A87D3B1B-949F-4C53-A87F-93E5D3BBFB17}' />
     </worksheet>
-    <worksheet name='행정 구별 폐업비율'>
+    <worksheet name='행정구별 폐업비율'>
       <table>
         <view>
           <datasources>
@@ -1396,6 +1436,46 @@
             <column-instance column='[시(복사본)_0642397469417476]' derivation='None' name='[none:시(복사본)_0642397469417476:nk]' pivot='key' type='nominal' />
             <column-instance column='[Calculation_0926896149983232]' derivation='User' name='[usr:Calculation_0926896149983232:qk]' pivot='key' type='quantitative' />
             <column datatype='string' name='[도로명주소]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+            <column datatype='string' name='[생존률이 특히 높은 2개 구]' role='dimension' semantic-role='[County].[Name]' type='nominal'>
+              <calculation class='categorical-bin' column='[시(복사본)_0642397469417476]' new-bin='true'>
+                <bin default-name='false' value='&quot;생존률이 평범한 구&quot;'>
+                  <value>&quot;강남구&quot;</value>
+                  <value>&quot;강동구&quot;</value>
+                  <value>&quot;강북구&quot;</value>
+                  <value>&quot;강서구&quot;</value>
+                  <value>&quot;관악구&quot;</value>
+                  <value>&quot;광명시&quot;</value>
+                  <value>&quot;광진구&quot;</value>
+                  <value>&quot;구로구&quot;</value>
+                  <value>&quot;군포시&quot;</value>
+                  <value>&quot;금천구&quot;</value>
+                  <value>&quot;노원구&quot;</value>
+                  <value>&quot;도봉구&quot;</value>
+                  <value>&quot;동대문구&quot;</value>
+                  <value>&quot;동작구&quot;</value>
+                  <value>&quot;마포구&quot;</value>
+                  <value>&quot;부평구&quot;</value>
+                  <value>&quot;서대문구&quot;</value>
+                  <value>&quot;서초구&quot;</value>
+                  <value>&quot;성남시&quot;</value>
+                  <value>&quot;성동구&quot;</value>
+                  <value>&quot;성북구&quot;</value>
+                  <value>&quot;송파구&quot;</value>
+                  <value>&quot;안양시&quot;</value>
+                  <value>&quot;양천구&quot;</value>
+                  <value>&quot;영등포구&quot;</value>
+                  <value>&quot;용산구&quot;</value>
+                  <value>&quot;용인시&quot;</value>
+                  <value>&quot;은평구&quot;</value>
+                  <value>&quot;의정부시&quot;</value>
+                  <value>&quot;중랑구&quot;</value>
+                </bin>
+                <bin default-name='true' value='&quot;종로구 및 중구&quot;'>
+                  <value>&quot;종로구&quot;</value>
+                  <value>&quot;중구&quot;</value>
+                </bin>
+              </calculation>
+            </column>
             <column caption='소재지우편번호-구' datatype='string' name='[시(복사본)_0642397469417476]' role='dimension' semantic-role='[County].[Name]' type='nominal'>
               <calculation class='tableau' formula='SPLIT([도로명주소], &apos; &apos;, 2)' />
             </column>
@@ -1435,6 +1515,9 @@
             <column datatype='string' name='[업태구분명]' role='dimension' type='nominal' />
             <column datatype='string' name='[영업상태명]' role='dimension' type='nominal' />
           </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.06btt4p0un3mlm11znpg30zr7t93].[none:시(복사본)_0642397469417476:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.06btt4p0un3mlm11znpg30zr7t93].[usr:Calculation_0926896149983232:qk]' shelf='columns' />
+          </shelf-sorts>
           <slices>
             <column>[federated.06btt4p0un3mlm11znpg30zr7t93].[업태구분명 (그룹)]</column>
             <column>[federated.06btt4p0un3mlm11znpg30zr7t93].[none:시(복사본)_0642397469417476:nk]</column>
@@ -1455,11 +1538,14 @@
               <breakdown value='auto' />
             </view>
             <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.06btt4p0un3mlm11znpg30zr7t93].[생존률이 특히 높은 2개 구]' />
+            </encodings>
             <reference-line axis-column='[federated.06btt4p0un3mlm11znpg30zr7t93].[usr:Calculation_0926896149983232:qk]' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-pane' value-column='[federated.06btt4p0un3mlm11znpg30zr7t93].[usr:Calculation_0926896149983232:qk]' z-order='1' />
           </pane>
         </panes>
         <rows>[federated.06btt4p0un3mlm11znpg30zr7t93].[usr:Calculation_0926896149983232:qk]</rows>
-        <cols />
+        <cols>[federated.06btt4p0un3mlm11znpg30zr7t93].[none:시(복사본)_0642397469417476:nk]</cols>
       </table>
       <simple-id uuid='{EE2234B6-BE4F-4B64-8A48-257DE5E70933}' />
     </worksheet>
@@ -1544,7 +1630,7 @@
       </cards>
       <simple-id uuid='{DE6DF160-4ED4-4779-B0D0-1E4500F10922}' />
     </window>
-    <window class='worksheet' maximized='true' name='행정 구별 폐업비율'>
+    <window class='worksheet' name='행정구별 폐업비율'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1567,6 +1653,7 @@
         <edge name='right'>
           <strip size='160'>
             <card param='[federated.06btt4p0un3mlm11znpg30zr7t93].[none:시(복사본)_0642397469417476:nk]' type='filter' values='cascading' />
+            <card pane-specification-id='0' param='[federated.06btt4p0un3mlm11znpg30zr7t93].[생존률이 특히 높은 2개 구]' type='color' />
           </strip>
         </edge>
       </cards>
@@ -1575,7 +1662,7 @@
       </viewpoint>
       <simple-id uuid='{9900BF4B-5312-45D3-B539-F3C46BFFB7B4}' />
     </window>
-    <window class='worksheet' name='시트 5'>
+    <window class='worksheet' maximized='true' name='시트 5'>
       <cards>
         <edge name='left'>
           <strip size='160'>
