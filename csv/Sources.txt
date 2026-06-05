@@ -8,3 +8,6 @@ https://data.seoul.go.kr/bsp/wgs/gis/gis43.do
 
 # 연령별 등록인구 통계 2014 - 2026
 https://data.seoul.go.kr/dataList/10718/C/2/datasetView.do
+
+# 서울시 사업체현황
+https://data.seoul.go.kr/dataList/104/S/2/datasetView.do
