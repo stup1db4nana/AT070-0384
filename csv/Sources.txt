@@ -11,3 +11,6 @@ https://data.seoul.go.kr/dataList/10718/C/2/datasetView.do
 
 # 서울시 사업체현황
 https://data.seoul.go.kr/dataList/104/S/2/datasetView.do
+
+# 서울시 지역별 평균 임대료
+https://golmok.seoul.go.kr/stateArea.do
